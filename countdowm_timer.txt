@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Countdown Timer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="countdown">
+    <h1>Event Countdown Timer</h1>
+    <div id="timer">
+      <div class="time">
+        <span id="days">00</span>
+        <span>Days</span>
+      </div>
+      <div class="time">
+        <span id="hours">00</span>
+        <span>Hours</span>
+      </div>
+      <div class="time">
+        <span id="minutes">00</span>
+        <span>Minutes</span>
+      </div>
+      <div class="time">
+        <span id="seconds">00</span>
+        <span>Seconds</span>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+CSS (styles.css):
+
+css
+Copy code
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.countdown {
+  text-align: center;
+}
+
+.countdown h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.time {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+}
+JavaScript (script.js):
+
+javascript
+/*Copy code*/
+// Set the date we're counting down to (change this to your desired event date)
+const countDownDate = new Date("May 31, 2024 00:00:00").getTime();
+
+// Update the countdown every 1 second
+const x = setInterval(function() {
+  // Get the current date and time
+  const now = new Date().getTime();
+
+  // Calculate the remaining time
+  const distance = countDownDate - now;
+
+  // Calculate days, hours, minutes, and seconds
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the countdown
+  document.getElementById("days").innerHTML = formatTime(days);
+  document.getElementById("hours").innerHTML = formatTime(hours);
+  document.getElementById("minutes").innerHTML = formatTime(minutes);
+  document.getElementById("seconds").innerHTML = formatTime(seconds);
+
+  // If the countdown is over, display a message
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "<p>The event has ended!</p>";
+  }
+}, 1000);

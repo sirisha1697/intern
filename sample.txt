@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Image</title>
+<style>
+  body {
+    background-image: url('your_image_url.jpg'); /* Specify the URL of your image */
+    background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat; /* Don't repeat the background */
+    width: 100%; /* Make sure the background covers the entire viewport */
+    height: 100vh; /* Set the height of the background */
+  }
+</style>
+</head>
+<body>
+  <!-- Your content goes here -->
+</body>
+</html>

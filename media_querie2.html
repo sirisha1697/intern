@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #imageContainer{
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            color:white;
+            font-size: 24px;
+
+        }
+        /*upto 0 -600 width*/
+     @media  only screen and (max-width:600px){
+        #imageContainer{
+            background-image: url('flower.jpg');
+            height:200px;
+            width:200px;
+        }
+     }
+     /*from 601 width*/
+     @media  only screen and(min-width:601px){
+     #imageContainer{
+            background-image: url('flower.jpg');
+            height:400px;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="imageContainer"></div>
+    
+</body>
+</html>
